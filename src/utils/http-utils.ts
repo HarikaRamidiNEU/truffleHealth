@@ -1,5 +1,6 @@
 import logger from '../config/logger';
 import { CustomResponse } from '../types/config/express-types';
+import StatusError from './error-util';
 
 /**
  * Sets the response status code to 200, and then sends the object as a JSON response
@@ -17,8 +18,8 @@ export const setResponse = (response: CustomResponse, obj: any) => {
  * @param err - The error object that was thrown.
  * @param statusCode - Status code to set.
  */
-export const setError = (response: CustomResponse, err: Error, statusCode: number = 500) => {
+export const setError = (response: CustomResponse, err: StatusError, statusCode: number = 500) => {
     logger.error(err.message);
     response.status(statusCode);
-    response.json(err);
+    response.json(err.message);
 }

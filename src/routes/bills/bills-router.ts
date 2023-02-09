@@ -4,11 +4,11 @@ import * as bills from "../../controllers/bills-controller";
 
 const router = express.Router();
 
-// getUser Route
+// getBill Route
 router.route('/items').get(bills.getBills);
 
 
-// UpdateProfile Route
+// Create a new bill Route
 router.route('/items').post(bills.createBill);
 
 export default router;

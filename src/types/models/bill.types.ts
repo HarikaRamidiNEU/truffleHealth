@@ -2,9 +2,11 @@
  * Bill Entity.
  */
  export interface IBill {
+    id: number,
     patientName: string,
     address: string,
     hospitalName: string,
-    dateOfService: string,
-    amount: BigInt
+    dateOfService: Date,
+    amount: BigInt,
+    createdDate: Date
 }
