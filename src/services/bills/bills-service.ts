@@ -8,8 +8,8 @@ import { isValidDate } from "../../config/validators";
  * @param bill - bill object of type IBill with the details of bill
  */
  export const createBill = (bill: IBill) => {
-    if(!bill.patientName || !bill.amount || (bill.patientName && bill.patientName.trim() === "")){
-      const error = new StatusError("PatientName and amount cannot be empty");
+    if(!bill.patientName || !bill.amount || !bill.dateOfService || !bill.hospitalName || (bill.patientName && bill.patientName.trim() === "") || (bill.hospitalName && bill.hospitalName.trim() === "")){
+      const error = new StatusError("Patient Name, Hospital Name, Date of Service and amount cannot be empty");
       error.status = 400;
       throw error;
     }
