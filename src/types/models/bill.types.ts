@@ -2,7 +2,7 @@
  * Bill Entity.
  */
  export interface IBill {
-    id: number,
+    id: string,
     patientName: string,
     address: string,
     hospitalName: string,

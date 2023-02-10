@@ -1,14 +1,14 @@
 import { IBill } from '../../types/models/bill.types';
+import {v4 as uuidv4} from 'uuid';
 
 const bills: IBill[] = [];
-const i = 0;
 
 /**
  * This method is used to create a new bill entity and add it to bills array
  * @param bill of type IBill
  */
 export const addBill = (bill:IBill) => {
-    bill.id = i+1;
+    bill.id = uuidv4();
     const date = new Date();
     bill.createdDate = date;
     bills.push(bill);
