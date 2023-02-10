@@ -30,3 +30,5 @@ routes(app);
 app.listen(port, () => {
     logger.info(`Server listening on port ${port}`);
 });
+
+export default app;
