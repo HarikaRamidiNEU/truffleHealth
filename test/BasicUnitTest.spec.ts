@@ -19,7 +19,7 @@ describe('All Tests', () => {
             .send({})
             .expect(400)
             .expect((res)=> {
-                expect(res.body).eq("PatientName and amount cannot be empty")
+                expect(res.body).eq("Patient Name, Hospital Name, Date of Service and amount cannot be empty")
             })
             .end(done);
     });
@@ -52,10 +52,43 @@ describe('All Tests', () => {
             })
             .expect(400)
             .expect((res)=> {
-                expect(res.body).eq("PatientName and amount cannot be empty")
+                expect(res.body).eq("Patient Name, Hospital Name, Date of Service and amount cannot be empty")
             })
             .end(done);
     });
+
+    it('should return status 400 on POST items', (done) => {
+        request
+             .post('/api/v1/items')
+             .send({
+                 "patientName": "patient1",
+                 "address": "patient2 address",
+                 "dateOfService": "2023/09/02",
+                 "amount": 100
+             })
+             .expect(400)
+             .expect((res)=> {
+                 expect(res.body).eq("Patient Name, Hospital Name, Date of Service and amount cannot be empty")
+             })
+             .end(done);
+     });
+
+     it('should return status 400 on POST items', (done) => {
+        request
+             .post('/api/v1/items')
+             .send({
+                 "patientName": "patient1",
+                 "address": "patient2 address",
+                 "hospitalName": "HospitalB",
+                 "amount": 100
+             })
+             .expect(400)
+             .expect((res)=> {
+                 expect(res.body).eq("Patient Name, Hospital Name, Date of Service and amount cannot be empty")
+             })
+             .end(done);
+     });
+
 
     it('should return status 400 on POST items', (done) => {
        request
@@ -66,7 +99,7 @@ describe('All Tests', () => {
                 "dateOfService": "2023/09/02",
             })
             .expect((res)=> {
-                expect(res.body).eq("PatientName and amount cannot be empty")
+                expect(res.body).eq("Patient Name, Hospital Name, Date of Service and amount cannot be empty")
             })
             .expect(400)
             .end(done);
